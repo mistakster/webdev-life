@@ -15,32 +15,206 @@
 </header>
 
 <section class="slide white">
-	<h2 style="margin-top: 0; text-align: center; font-size: 96px;">Жизнь <span style="white-space: nowrap">веб-разработчика</span></h2>
-	<p style="text-align: center">
-		Владимир Кузнецов,
-		<a target="_blank" href="https://twitter.com/mistakster">@mistakster</a>,
-		Graph
+	<div class="cover">
+		<h2 style="margin-top: 0; text-align: center; font-size: 96px;">Жизнь <span style="white-space: nowrap">веб-разработчика</span></h2>
+		<p style="text-align: center; margin-bottom: 0">
+			Владимир Кузнецов,
+			<a target="_blank" href="https://twitter.com/mistakster">@mistakster</a>,
+			Graph
+		</p>
+	</div>
+</section>
+
+<section class="slide black">
+    <img src="assets/img/heavy-thing.jpg" class="cover">
+</section>
+
+<section class="slide">
+    <h2 class="shout">Мы стараемся сделать жизнь легче</h2>
+</section>
+
+<section class="slide">
+	<h2>Мы активно используем:</h2>
+	<ul>
+		<li>continuous deployment;</li>
+		<li>webpack;</li>
+		<li>компонентный подход;</li>
+		<li>синтаксис ES2015;</li>
+		<li>проверку «code style»;</li>
+		<li>пре- и пост-процессоры CSS.</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2 class="shout">Показывать заказчику части проекта по мере готовности</h2>
+</section>
+
+<section class="slide white">
+	<div class="cover" style="width: 100%; text-align: center;">
+		<p>
+			<img src="assets/img/2013.png" style="width: 100%; display: block;">
+		</p>
+		<p>Слайды — <a href="http://bit.ly/wsd-2013-ci">bit.ly/wsd-2013-ci</a><br>
+			Видео — <a href="https://events.yandex.ru/lib/talks/1511/">https://events.yandex.ru/lib/talks/1511/</a></p>
+	</div>
+</section>
+
+<section class="slide">
+	<h2>Текущий стек технологий:</h2>
+	<ul>
+		<li><span style="color: #999; text-decoration: line-through;">Grunt + Assemble</span> webpack + npm scripts</li>
+		<li class="next"><span style="color: #999; text-decoration: line-through;">Mustache</span> React.js</li>
+		<li class="next">Less + PostCSS</li>
+		<li class="next">Babel</li>
+		<li class="next">ESLint</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2 class="shout">Проблемы, которые у нас были в 2013</h2>
+</section>
+
+<section class="slide">
+	<h2>Сборка CSS и JS выполнялась отдельными тасками</h2>
+	<p>Было сложно управлять компонентами в больших проектах.</p>
+</section>
+
+<section class="slide">
+	<h2>JavaScript-код писался в виде плагинов&nbsp;к&nbsp;jQuery</h2>
+	<p>Файлы конкатенировались по маске:</p>
+	<pre>
+		<code>'js/libs/*',</code>
+		<code>'js/plugins/*',</code>
+		<code>'js/components/*',</code>
+		<code>'js/app.js'</code>
+	</pre>
+</section>
+
+<section class="slide">
+	<h2>CSS долго обрабатывался, когда подключался через <strong>@import</strong></h2>
+	<p>Изменения в одном файле заставляло обрабатываться все стили заново.</p>
+	<p>Мы обрабатывали файлы независимо друг от друга. А потом склеивали в нужном порядке.</p>
+</section>
+
+<section class="slide">
+	<h2>Бардак в файлах</h2>
+	<p>Картинки лежали где-то рядом с исходниками, чтобы ссылки на них не ломались в процессе сборки.</p>
+	<p>Потом становилось сложно отделить картинки-заглушки от реальных картинок.</p>
+</section>
+
+<section class="slide">
+	<h2>Шаблоны нельзя было переиспользовать</h2>
+	<p>Код HTML-шаблонов всегда отправлялся в утиль при интеграции с бекэндом из-за того, что на сервере и клиенте были разные шаблонизаторы.</p>
+	<p>И даже когда нам удалось использовать и там, и там кросс-платформенный Mustache, то была разница в названиях полей модели.</p>
+</section>
+
+<section class="slide black">
+	<img src="assets/img/fear.jpg" class="cover" style="width: 100%;">
+</section>
+
+<section class="slide">
+	<h2 class="shout">Сборка с помощью webpack</h2>
+</section>
+
+<section class="slide">
+	<h2>Мы отказались от «task runner»</h2>
+	<p>Все специфичные задачи, которые относятся к сборке, мы запускаем через
+		консольную команду <code>npm run</code>.</p>
+</section>
+
+<section class="slide white">
+	<img src="assets/img/npm-run.png" class="cover" style="height: 100%;">
+</section>
+
+<section class="slide">
+	<h2>webpack дал нам:</h2>
+	<ul>
+		<li>единую систему отслеживания зависимостей;</li>
+		<li class="next">очень быстрые инкрементальные сборки;</li>
+		<li class="next">прекрасную расширяемость.</li>
+	</ul>
+</section>
+
+<section class="slide white">
+	<img src="assets/img/files-layout.png" class="cover" style="width: 100%;">
+</section>
+
+<section class="slide">
+	<h2 class="shout">Шаблонизация</h2>
+</section>
+
+<section class="slide">
+	<h2>React</h2>
+	<p>
+		Компоненты, которые используются на страницах, образуют дерево зависимостей.
+		Модуль <code>react-router</code> определяет какую ветку дерева нужно отрендерить в файл.
 	</p>
 </section>
 
-<section class="slide">
-    <h2>План</h2>
+<section class="slide white">
+	<img src="assets/img/router.png" class="cover" style="width: 100%;">
 </section>
 
 <section class="slide">
-    <h2 class="shout"></h2>
+	<h2 class="shout">Горячее обновление кода</h2>
+</section>
+
+<section class="slide">
+	<h2>Два режима сборки</h2>
+	<ol>
+		<li>для демо-сервера — в файлы на диске;</li>
+		<li>для разработки — всё памяти.</li>
+	</ol>
+</section>
+
+<section class="slide">
+	<h2>Сборка для демо-сервера</h2>
+	<ul>
+		<li>разметка генерируется в HTML-файлы;</li>
+		<li>JS-файл содержит весь код;</li>
+		<li>стили выгружаются в CSS-файлы.</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Сборка для разработки</h2>
+	<ul>
+		<li>запускается сервер на Express с поддержкой HMR;</li>
+		<li>JS-файл содержит в себе весь код и стили, которые
+			добавятся на&nbsp;страницу динамически в теге <code>&lt;style></code>;</li>
+		<li>HTML содержит только элемент, куда нарисуется содержимое страницы.</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2 class="shout">На самом деле есть ещё один режим!</h2>
+</section>
+
+<section class="slide">
+	<h2>Сборка <strong>живого</strong> сервера</h2>
+	<p>Все компоненты без изменений переиспользуются во время сборки ресурсов для живого сервера.</p>
+	<p>Нам нужно сохранить исходные зависимости.</p>
+	<p>Код, который не нужен, автоматически вырезается плагином для&nbsp;Babel.</p>
+</section>
+
+<section class="slide white">
+	<img src="assets/img/trim-below.png" class="cover" style="width: 100%;">
+</section>
+
+<section class="slide">
+	<h2 class="shout">Заключение</h2>
 </section>
 
 <section class="slide" id="contacts">
 	<h2>Владимир Кузнецов</h2>
 	<p>
-		<img src="assets/img/twitter.svg" style="width: 24px; vertical-align: middle">
+		<img src="assets/icons/twitter.svg" style="width: 24px; vertical-align: middle">
 		<a href="https://twitter.com/mistakster" target="_blank">@mistakster</a> (English)<br>
-		<img src="assets/img/twitter.svg" style="width: 24px; vertical-align: middle">
+		<img src="assets/icons/twitter.svg" style="width: 24px; vertical-align: middle">
 		<a href="https://twitter.com/mista_k" target="_blank">@mista_k</a> (больше про жизнь)
 	</p>
 	<p>
-		<img src="assets/img/globe.svg" style="width: 24px; vertical-align: middle">
+		<img src="assets/icons/globe.svg" style="width: 24px; vertical-align: middle">
 		<a href="https://noteskeeper.ru" target="_blank">noteskeeper.ru</a>
 	</p>
 	<p>
