@@ -121,6 +121,15 @@
 </section>
 
 <section class="slide">
+	<h2>webpack дал нам:</h2>
+	<ul>
+		<li>единую систему отслеживания зависимостей;</li>
+		<li class="next">очень быстрые инкрементальные сборки;</li>
+		<li class="next">прекрасную расширяемость.</li>
+	</ul>
+</section>
+
+<section class="slide">
 	<h2>Мы отказались от «task runner»</h2>
 	<p>Все специфичные задачи, которые относятся к сборке, мы запускаем через
 		консольную команду <code>npm run</code>.</p>
@@ -132,12 +141,7 @@
 </section>
 
 <section class="slide">
-	<h2>webpack дал нам:</h2>
-	<ul>
-		<li>единую систему отслеживания зависимостей;</li>
-		<li class="next">очень быстрые инкрементальные сборки;</li>
-		<li class="next">прекрасную расширяемость.</li>
-	</ul>
+	<h2 class="shout">Все файлы компоненты лежат в одной папке</h2>
 </section>
 
 <section class="slide white">
@@ -163,7 +167,9 @@
 </section>
 
 <section class="slide">
-	<h2 class="shout">Горячее обновление кода</h2>
+	<h2 class="shout">
+		<span style="display: inline-block; width: 90%">Горячее обновление кода</span>
+	</h2>
 </section>
 
 <section class="slide">
@@ -183,6 +189,10 @@
 	</ul>
 </section>
 
+<section class="slide white">
+	<img src="assets/img/npm-run-build.png" class="cover" style="height: 100%;">
+</section>
+
 <section class="slide">
 	<h2>Сборка для разработки</h2>
 	<ul>
@@ -191,6 +201,10 @@
 			добавятся на&nbsp;страницу динамически в теге <code>&lt;style></code>;</li>
 		<li>HTML содержит только элемент, куда нарисуется содержимое страницы.</li>
 	</ul>
+</section>
+
+<section class="slide white">
+	<img src="assets/img/npm-start.png" class="cover" style="height: 100%;">
 </section>
 
 <section class="slide">
@@ -210,7 +224,33 @@
 </section>
 
 <section class="slide">
-	<h2 class="shout">Заключение</h2>
+	<h2 class="shout">Абсолютно независимые блоки</h2>
+</section>
+
+<section class="slide">
+	<h2>Пробовали CSS Modules</h2>
+	<ul>
+		<li>но не поняли как их можно применять в наших рабочих процессах;</li>
+		<li class="next">много разного рода конфликтов с Less;</li>
+		<li class="next">пока очень сложно использовать вне React.</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Сброс стилей</h2>
+	<pre>
+		<code>.block {</code>
+		<code>  <mark class="important">all: initial</mark>;</code>
+		<code>  display: block;</code>
+		<code>}</code>
+	</pre>
+	<p class="next">
+		<a href="https://github.com/maximkoretskiy/postcss-initial">PostCSS Initial</a>
+	</p>
+</section>
+
+<section class="slide white">
+	<img src="assets/img/sirin-and-alconost.jpg" class="cover" style="height: 100%;">
 </section>
 
 <section class="slide" id="contacts">
